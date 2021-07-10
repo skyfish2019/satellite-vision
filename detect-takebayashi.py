@@ -50,3 +50,4 @@ for x in range(0,2400):＃20ブロック*60ブロック
             img3[y:ye, x:xe]=[0,0,255]#赤くぬりつぶす
 
 cv2.imwrite("output.png", img3)
+

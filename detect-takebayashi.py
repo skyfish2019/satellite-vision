@@ -4,19 +4,19 @@ import numpy as np
 #各画像をディレクトリ配下に設置
 dir='./tochigi/'
 
-#1)NDVIをつかっって緑地（木々が生えている場所）を探す
+#1)NDVIをつかっって緑地（木々が生えている場所）を探してセット
 tgt = cv2.imread(dir+'2021-04-07_NDVI.jpg',0)
-tgt = tgt[0:800, 0:1200]#トリミング
+tgt = tgt[0:800, 0:1200]#　800px*1200でトリミング
 
 #2)竹藪が枯れたタイミングを狙った画像を取得　5/15近辺でなおかつ1年前も確認してわかりやすいほうを使用
 img1 = cv2.imread(dir+'2021-05-02.jpg',1)
 img1 = img1[0:800, 0:1200]
-img_bgr1 = cv2.split(img1)  # 色分解
+img_bgr1 = cv2.split(img1)# 色分解
 img_r1 = img_bgr1[2]
-img_r1[100<img_r1] ==0 
-img_r1[20>img_r1] ==0 
+img_r1[100<img_r1]==0 
+img_r1[20>img_r1]==0 
 
-#3)竹の葉が緑に戻ったタイミングを狙った画像を取得
+#3)竹の葉が緑に戻ったタイミングを狙った画像を用意してセット
 img2 = cv2.imread(dir+'2021-06-11.jpg',1)
 img2 = img2[0:800, 0:1200]
 img_bgr2 = cv2.split(img2)# 色分解
